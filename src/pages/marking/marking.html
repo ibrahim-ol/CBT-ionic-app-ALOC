@@ -1,0 +1,77 @@
+<!--
+  Generated template for the MarkingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar [color]="navColor">
+    <ion-title>Result</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div text-center>
+    <h1>{{correctNo}}</h1>
+    <ion-row>
+      <ion-col offset-4 col-4>
+        <hr>
+      </ion-col>
+    </ion-row>
+    <h1>{{question.length}}</h1>
+  </div>
+<div>
+  <button ion-button full (click)="gotoHome">Start new</button>
+</div>
+<h2 color="primary" text-center>SOLUTIONS</h2>
+
+  <ion-card *ngFor="let q of question" text-center>
+    <div >
+      <ion-card-header>
+        <ion-card-title>
+          <div *ngIf="q.section != ''" text-wrap margin-bottom>Instruction: {{q.section}}</div>
+
+          <span text-wrap>{{q.question}}</span>
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list radio-group>
+          <ion-item>
+            <span item-left>{{q.option.a}}</span>
+            <span item-right *ngIf="q.selectedAnswer === 'a' && q.selectedAnswer !== q.answer"><ion-icon color="danger" name="close"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'a'  && q.selectedAnswer === 'a'"><ion-icon name="done-all" color="secondary"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'a' && q.selectedAnswer !== 'a'"><ion-icon name="checkmark" color="secondary"></ion-icon></span>
+          </ion-item>
+          <ion-item>
+            <span item-left>{{q.option.b}}</span>
+            <span item-right *ngIf="q.selectedAnswer === 'b' && q.selectedAnswer !== q.answer"><ion-icon color="danger" name="close"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'b' && q.selectedAnswer === 'b'"><ion-icon name="done-all" color="secondary"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'b' && q.selectedAnswer !== 'b'"><ion-icon name="checkmark" color="secondary"></ion-icon></span>
+
+          </ion-item>
+          <ion-item>
+            <span item-left>{{q.option.c}}</span>
+            <span item-right *ngIf="q.selectedAnswer === 'c' && q.selectedAnswer !== q.answer"><ion-icon color="danger" name="close"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'c'  && q.selectedAnswer === 'c'"><ion-icon name="done-all" color="secondary"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'c' && q.selectedAnswer !== 'c'"><ion-icon name="checkmark" color="secondary"></ion-icon></span>
+
+          </ion-item>
+          <ion-item>
+            <span item-left>{{q.option.d}}</span>
+            <span item-right *ngIf="q.selectedAnswer === 'd' && q.selectedAnswer !== q.answer"><ion-icon color="danger" name="close"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'd'  && q.selectedAnswer === 'd'"><ion-icon name="done-all" color="secondary"></ion-icon></span>
+            <span item-right *ngIf="q.answer === 'd' && q.selectedAnswer !== 'd'"><ion-icon name="checkmark" color="secondary"></ion-icon></span>
+
+          </ion-item>
+
+        </ion-list>
+      </ion-card-content>
+
+    </div>
+
+  </ion-card>
+</ion-content>

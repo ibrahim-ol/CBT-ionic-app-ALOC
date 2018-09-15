@@ -1,0 +1,7 @@
+{
+  "name": "alocClient",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
